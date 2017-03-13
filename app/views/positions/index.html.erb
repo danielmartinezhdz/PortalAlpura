@@ -1,0 +1,12 @@
+<table class="table table-bordered">
+	<tr>
+		<th>Descripcion</th>
+		<th>Nombre Corto</th>
+	</tr>
+	<%@positions.each do |position|%>
+	<tr>
+		<td><%=position.position_description%></td>
+		<td><%=position.position_short%></td>
+	</tr>
+	<%end%>
+</table>
