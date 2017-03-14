@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Projects Inversions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Project</th>
+      <th>Quantity</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @projects_inversions.each do |projects_inversion| %>
+      <tr>
+        <td><%= projects_inversion.project %></td>
+        <td><%= projects_inversion.quantity %></td>
+        <td><%= link_to 'Show', projects_inversion %></td>
+        <td><%= link_to 'Edit', edit_projects_inversion_path(projects_inversion) %></td>
+        <td><%= link_to 'Destroy', projects_inversion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Projects Inversion', new_projects_inversion_path %>

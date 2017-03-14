@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :projects_inversions
+  resources :projects_benefits
+  resources :projects_objetives
   resources :projects
   devise_for :users
 

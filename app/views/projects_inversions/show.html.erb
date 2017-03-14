@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @projects_inversion.project %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @projects_inversion.quantity %>
+</p>
+
+<%= link_to 'Edit', edit_projects_inversion_path(@projects_inversion) %> |
+<%= link_to 'Back', projects_inversions_path %>
