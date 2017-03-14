@@ -1,0 +1,27 @@
+<%= form_for(projects_briefcase) do |f| %>
+  <% if projects_briefcase.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(projects_briefcase.errors.count, "error") %> prohibited this projects_briefcase from being saved:</h2>
+
+      <ul>
+      <% projects_briefcase.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :project_id %>
+    <%= f.text_field :project_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @projects_briefcase.project %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @projects_briefcase.name %>
+</p>
+
+<%= link_to 'Edit', edit_projects_briefcase_path(@projects_briefcase) %> |
+<%= link_to 'Back', projects_briefcases_path %>

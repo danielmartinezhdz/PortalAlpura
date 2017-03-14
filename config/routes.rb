@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :projects_briefcases
   resources :projects_inversions
   resources :projects_benefits
   resources :projects_objetives

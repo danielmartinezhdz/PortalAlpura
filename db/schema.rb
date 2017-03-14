@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170314014715) do
+ActiveRecord::Schema.define(version: 20170314171521) do
 
   create_table "positions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "position_description"
@@ -42,6 +42,14 @@ ActiveRecord::Schema.define(version: 20170314014715) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_projects_benefits_on_project_id", using: :btree
+  end
+
+  create_table "projects_briefcases", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer  "project_id"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_projects_briefcases_on_project_id", using: :btree
   end
 
   create_table "projects_inversions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -112,6 +120,7 @@ ActiveRecord::Schema.define(version: 20170314014715) do
 
   add_foreign_key "projects", "users"
   add_foreign_key "projects_benefits", "projects"
+  add_foreign_key "projects_briefcases", "projects"
   add_foreign_key "projects_inversions", "projects"
   add_foreign_key "projects_objetives", "projects"
   add_foreign_key "proyects", "users"

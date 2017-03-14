@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Projects Briefcases</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Project</th>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @projects_briefcases.each do |projects_briefcase| %>
+      <tr>
+        <td><%= projects_briefcase.project %></td>
+        <td><%= projects_briefcase.name %></td>
+        <td><%= link_to 'Show', projects_briefcase %></td>
+        <td><%= link_to 'Edit', edit_projects_briefcase_path(projects_briefcase) %></td>
+        <td><%= link_to 'Destroy', projects_briefcase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Projects Briefcase', new_projects_briefcase_path %>
