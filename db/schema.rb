@@ -10,13 +10,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170313235938) do
+ActiveRecord::Schema.define(version: 20170314011203) do
 
   create_table "positions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "position_description"
     t.string   "position_short"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+  end
+
+  create_table "projects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.text     "desciption",   limit: 65535
+    t.string   "status"
+    t.integer  "priority"
+    t.decimal  "contribution",               precision: 10
+    t.string   "term"
+    t.date     "start"
+    t.date     "finish"
+    t.date     "start_real"
+    t.date     "finish_real"
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
+    t.index ["user_id"], name: "index_projects_on_user_id", using: :btree
+  end
+
+  create_table "proyects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.text     "desciption",   limit: 65535
+    t.string   "status"
+    t.integer  "priority"
+    t.decimal  "contribution",               precision: 10, scale: 2
+    t.string   "term"
+    t.date     "start"
+    t.date     "finish"
+    t.date     "start_real"
+    t.date     "finish_real"
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
+    t.index ["user_id"], name: "index_proyects_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -52,4 +86,6 @@ ActiveRecord::Schema.define(version: 20170313235938) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "projects", "users"
+  add_foreign_key "proyects", "users"
 end
