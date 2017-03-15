@@ -15,10 +15,12 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   def new
     @project = Project.new
+    1.times {@project.projects_objetives.build}
   end
 
   # GET /projects/1/edit
   def edit
+    1.times {@project.projects_objetives.build}
   end
 
   # POST /projects
@@ -69,6 +71,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:user_id, :name, :desciption, :status, :priority, :contribution, :term, :start, :finish, :start_real, :finish_real)
+      params.require(:project).permit(:user_id, :name, :desciption, :status, :priority, :contribution, :term, :start, :finish, :start_real, :finish_real,projects_objetives_attributes: [:name])
     end
 end

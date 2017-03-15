@@ -7,6 +7,7 @@
     <tr>
       <th>User</th>
       <th>Name</th>
+      <th>Objetives</th>
       <th>Desciption</th>
       <th>Status</th>
       <th>Priority</th>
@@ -23,8 +24,17 @@
   <tbody>
     <% @projects.each do |project| %>
       <tr>
-        <td><%= project.user.name + " " + project.user.lastname %></td>
+        <td ><%= project.user.name + " " + project.user.lastname %></td>
         <td><%= project.name %></td>
+        <td>
+          <table class="table table-bordered">
+            <%project.projects_objetives.each do |obj|%>
+            <tr>
+              <td><%=obj.name%></td>
+            </tr>
+            <%end%>
+          </table>
+        </td>
         <td><%= project.desciption %></td>
         <td><%= project.status %></td>
         <td><%= project.priority %></td>

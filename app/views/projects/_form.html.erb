@@ -22,6 +22,15 @@
   </div>
 
   <div class="field">
+    <h3>Objetivos</h3>
+    <ul>
+      <%=f.fields_for :projects_objetives do |objetives|%>
+        <li><%=objetives.text_field :name%></li>
+      <%end%>
+    </ul>
+  </div>
+
+  <div class="field">
     <%= f.label :status %>
     <%= f.text_field :status %>
   </div>
